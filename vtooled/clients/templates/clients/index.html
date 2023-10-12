@@ -1,0 +1,32 @@
+<head>{% load static %}
+<link rel="stylesheet" href="{%static 'clients/style.css' %}">
+</head>
+
+<header>
+    <h1>{% block title%} Helloooooo! {% endblock %}</h1>
+    <ul>
+        <li><a href="{% url 'clients:index' %}">Home</a></li>
+        <li><a href="{% url 'clients:details' %}">Details</a></li>
+        <li>Calendar</li>
+        <li>Billing</li>
+    </ul>
+</header>
+<body>
+{% if all_clients %}
+    <p>Newest Signups:</p>
+    <ul>
+        {% block client_details%} 
+            {% for client in all_clients %}
+                <li>{{client.first_name}} {{client.last_name}}</li>
+            {% endfor %}
+        {% endblock %}
+    </ul>
+    <div>Class Bookings</div>
+    <div>Upcoming classes</div>
+{% else %}
+    <h1>No clients to show...</h1>
+{% endif %}
+</body>
+<footer>
+    <p>place holder</p>
+</footer>

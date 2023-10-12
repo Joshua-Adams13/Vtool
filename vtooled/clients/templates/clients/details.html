@@ -1,0 +1,24 @@
+{% extends "clients/index.html" %}
+
+
+{% block title %} Details page! {% endblock %}
+
+
+{% block client_details %}
+  <table>
+    <th>
+        <tr>First Name</tr>
+        <tr>Last Name</tr>
+        <tr>Email Adress</tr>
+        <tr>Phone Number</tr>
+    </th>
+    {% for client in all_clients %}
+        <tr>
+            <td>{{client.first_name}}</td> 
+            <td>{{client.last_name}}</td>
+            <td>{{client.email}}</td>
+            <td>{{client.phone}}</td>
+        </tr>
+    {% endfor %}
+  </table> 
+{% endblock %}
